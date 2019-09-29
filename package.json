@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-todo",
   "version": "0.1.0",
-  "description": "",
+  "description": "This is meant to test my react-boilerplate",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
@@ -18,15 +18,7 @@
   },
   "author": "atwrx",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ATwrx/react-boilerplate.git"
-  },
   "keywords": [],
-  "bugs": {
-    "url": "https://github.com/ATwrx/react-boilerplate/issues"
-  },
-  "homepage": "https://github.com/ATwrx/react-boilerplate#readme",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
@@ -60,5 +52,13 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.13"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atwrx/react-todo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atwrx/react-todo/issues"
+  },
+  "homepage": "https://github.com/atwrx/react-todo#readme"
 }
