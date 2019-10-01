@@ -1,8 +1,8 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 export default class TodoForm extends React.Component {
   render() {
-    const { todo } = this.props
     return (
       <form onSubmit={this.props.handleSubmit}>
         <div>
@@ -28,4 +28,9 @@ export default class TodoForm extends React.Component {
       </form>
     )
   }
+}
+
+TodoForm.propTypes = {
+  handleChange: propTypes.func.isRequired,
+  handleSubmit: propTypes.func.isRequired
 }

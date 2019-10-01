@@ -3,8 +3,6 @@ import propTypes from 'prop-types'
 
 export const Todo = props => {
   const { todoList } = props
-
-  console.log(todoList)
   return (
     <ul>
       {todoList.map(({ title, desc, created }, i) => {
