@@ -1,50 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { hot } from 'react-hot-loader'
 import { Todo } from './components/Todo'
-import TodoForm from './components/TodoForm'
+import { AddTodo } from './components/AddTodo'
 
-class App extends React.Component {
-  state = {
-    todoList: [],
-    todo: {}
-  }
+const App = () => {
+  const [todoList, setTodoList] = useState([])
+  const [todo, setTodo] = useState({})
 
-  handleChange = event => {
+  const onChange = event => {
     const target = event.target
     //const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
-    this.setState({
-      todo: {
-        ...this.state.todo,
-        [name]: target.value,
-        created: new Date().toLocaleString()
-      }
+    setTodo({
+      ...todo,
+      [name]: target.value
     })
   }
 
-  handleSubmit = event => {
+  const onSubmit = event => {
     event.preventDefault()
-    const { todo } = this.state
-    this.setState({ todoList: [...this.state.todoList, todo] })
+    setTodo({ ...todo, created: new Date().toLocaleTimeString })
+    setTodoList([...todoList, todo])
   }
 
-  render() {
-    const { todoList } = this.state
-    return (
-      <div role="main">
-        <h1>Todo App</h1>
-        <TodoForm
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
-        {todoList.length > 0 ? (
-          <Todo todoList={todoList} />
-        ) : (
-          <p>add a todo.</p>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div role="main">
+      <h1>Todo App</h1>
+
+      <AddTodo onSubmit={onSubmit} onChange={onChange} />
+
+      {todoList.length > 0 ? <Todo todoList={todoList} /> : <p>add a todo.</p>}
+    </div>
+  )
 }
 
 export default hot(module)(App)
